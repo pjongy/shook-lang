@@ -70,12 +70,12 @@ class Interpreter:
             self._variable /= self.stack[self.stack_pointer]
             self._variable = _overflow_mask(int(self._variable))
         if code == '시발럼아':
-            # Assign variable to stack and increase stack pointer
+            # Assign variable to stack data
             assert self.flags.variable_assigning is True
             self.stack[self.stack_pointer] = self._variable
             self.flags.variable_assigning = False
         if code == '시발람아':
-            # Decrease stack pointer assign stack data to variable
+            # Assign stack data to variable
             assert self.flags.variable_assigning is False
             self._variable = self.stack[self.stack_pointer]
             self.flags.variable_assigning = True
